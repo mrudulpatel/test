@@ -1,6 +1,7 @@
 import Upload from "./artifacts/contracts/Upload.sol/Upload.json";
 import { useState, useEffect } from "react";
 import {ethers} from "ethers";
+import { Web3Provider } from "@ethersproject/providers";
 import FileUpload from "./components/FileUpload";
 import Display from "./components/Display";
 import Modal from "./components/Modal";
@@ -13,7 +14,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum); 
+    const provider = new Web3Provider(window.ethereum); 
 
     const loadProvider = async () => {
       if (provider) {
